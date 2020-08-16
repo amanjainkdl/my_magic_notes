@@ -68,7 +68,7 @@ nav div button {
     background-color: springgreen;
     display: flex;
     flex-wrap: wrap;
-    height: 500px;
+    height: 550px;
     border: 1px solid grey;
     flex-direction: column;
 }
@@ -116,7 +116,6 @@ nav div button {
         flex-direction: column;
     }
     #createdNotes div {
-        width: 80%;
         background-color: violet;
     }
 }

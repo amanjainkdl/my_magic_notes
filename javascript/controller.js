@@ -4,14 +4,15 @@ textArea.addEventListener('blur', saveNote);
 let notes = JSON.parse(localStorage.getItem('notes'));
 if (notes != null && notes.length) {
     let count = 0;
+    let title = JSON.parse(localStorage.getItem('titles'));
     notes.forEach(element => {
         let div = document.createElement('div');
         let data = element;
         div.setAttribute('class', count);
         div.style.cssText = "width:28%; padding:15px; border:1px solid grey; margin:5px; display: flex; flex-direction: column; justify-content: space-between; word-wrap: break-word;";
         let tpl = '<div>' +
-            '<p>Note ' + (count + 1) + '</p>' +
-            '<p class="data">' + data + '</p>' +
+            '<p style="font-weight:bold" class="title">' + title[count] + '</p>' +
+            '<p class="data" style="margin-top:2px">' + data + '</p>' +
             '</div>' +
             '<div>' +
             '<button class="deleteBtn" value="' + (count) + '" style="padding: 3px; margin-top: 10px; border:none; background-color:#33FFBD;">' +
@@ -36,7 +37,9 @@ function deleteNote(e) {
         let localStorageOnDeleteNote = JSON.parse(localStorage.getItem('notes'));
         localStorageOnDeleteNote.splice(e.target.value, 1);
         localStorage.setItem('notes', JSON.stringify(localStorageOnDeleteNote));
-        location.reload();
+        let titlelocalStorageOnDeleteNote = JSON.parse(localStorage.getItem('titles'));
+        titlelocalStorageOnDeleteNote.splice(e.target.value, 1);
+        localStorage.setItem('titles', JSON.stringify(titlelocalStorageOnDeleteNote));
     }
     e.stopPropagation();
 }
@@ -52,12 +55,13 @@ function saveNote(e) {
     if (note) {
         let div = document.createElement('div');
         let count = document.getElementById('createdNotes').childElementCount;
+        let title = document.getElementById('title');
         let data = document.getElementsByTagName('textArea')[0].value;
         div.setAttribute('class', count);
         div.style.cssText = "width:28%; padding:15px; border:1px solid grey; margin:5px; display: flex; flex-direction: column; justify-content: space-between; word-wrap: break-word;";
         let tpl = '<div>' +
-            '<p>Note ' + (count + 1) + '</p>' +
-            '<p class="data">' + data + '</p>' +
+            '<p style="font-weight:bold" class="title">'+title.value+ '</p>' +
+            '<p class="data" style="margin-top:2px">' + data + '</p>' +
             '</div>' +
             '<div>' +
             '<button class="deleteBtn" value="' + (count) + '" style="padding: 3px; margin-top: 10px; border:none; background-color:#33FFBD;">' +
@@ -78,6 +82,15 @@ function saveNote(e) {
             allNotes = [data];
         }
         localStorage.setItem('notes', JSON.stringify(allNotes));
+
+        let allTitles = JSON.parse(localStorage.getItem('titles'));
+        if (allTitles != null) {
+            allTitles.push(title.value);
+        } else {
+            allTitles = [title.value];
+        }
+        title.value = '';
+        localStorage.setItem('titles', JSON.stringify(allTitles));
     }
     else {
         console.log('No');
