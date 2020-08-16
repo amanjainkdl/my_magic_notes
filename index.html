@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notes</title>
+    <script src="https://kit.fontawesome.com/60833da3a5.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Antic+Slab&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <nav>
+            <ul>
+                <li><a href="#">Magic Notes</a></li>
+                <li>Home</li>
+            </ul>
+            <div>
+                <div class="searchBox">
+                    <input type="text" name="" id="searchField" placeholder="Search Notes">
+                    <button id="searchBtn"><i class="fa fa-search" aria-hidden="true"></i></button>
+                </div>
+            </div>
+        </nav>
+        <div class="outerBox">
+            <div class="innerBox">
+                <h3>
+                    Welcome To Magic Notes
+                </h3>
+                <div class='innerMostBox'>
+                    <h4>Add Title</h4>
+                    <input type="text">
+                    <h4>Add Note</h4>
+                    <textArea></textArea>
+                    <button>
+                        Add
+                    </button>
+                </div>
+                <div id='notesCount'>
+                    <h2 id='status'></h2>
+                    <div id='createdNotes'>                        
+                    </div>
+                </div>
+            </div>
+        </div>        
+    </div>
+    <script src="javascript/controller.js"></script>
+</body>
+
+</html>

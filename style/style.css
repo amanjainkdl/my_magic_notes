@@ -1,0 +1,122 @@
+* {
+    padding: 0px;
+    margin: 0px;
+    font-family: 'Antic Slab', serif;
+}
+
+nav {
+    display: flex;
+    color: white;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    background-color: black;
+}
+
+nav ul {
+    display: flex;
+}
+
+nav ul li {
+    padding: 20px;
+    list-style: none;
+}
+
+nav ul a {
+    color: white;
+    text-decoration: none;
+}
+
+nav div {
+    display: flex;
+    margin-right: 20px;
+    align-items: center;
+}
+
+nav div input {
+    height: 30px;
+    width: 80%;
+}
+
+nav div button {
+    height: 34px;
+    width: 20%;
+}
+
+.outerBox {
+    background-color: royalblue;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+.innerBox {
+    background-color: salmon;
+    border-top: 1px solid grey;
+    margin: 20px auto;
+    width: 60%;
+}
+
+.innerBox h3 {
+    padding: 15px;
+}
+
+.innerMostBox h4 {
+    padding: 15px;
+}
+
+.innerMostBox {
+    background-color: springgreen;
+    display: flex;
+    flex-wrap: wrap;
+    height: 500px;
+    border: 1px solid grey;
+    flex-direction: column;
+}
+
+.innerMostBox textArea {
+    width: 90%;
+    height: 60%;
+    margin: 10px auto;
+}
+
+.innerMostBox input{
+   width: 90%;
+   height: 6%;
+   margin: 2px auto;
+}
+
+.innerMostBox button {
+    width: 120px;
+    height: 8%;
+    margin-left: 5%;
+}
+
+#createdNotes {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+@media only screen and (max-width:800px) {}
+
+@media only screen and (max-width:450px) {
+    nav, nav ul {
+        flex-direction: column;
+    }
+    nav div {
+        margin: 0px;
+        justify-content: center;
+    }
+    nav li {
+        text-align: center;
+    }
+    .innerBox {
+        width: 100%;
+    }
+    #createdNotes {
+        flex-direction: column;
+    }
+    #createdNotes div {
+        width: 80%;
+        background-color: violet;
+    }
+}
